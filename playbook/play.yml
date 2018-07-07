@@ -1,0 +1,17 @@
+- name: Run with inline v2 compose
+  hosts: webserver
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_name: airflow
+        project_src: "{{playbook_dir}}"
+        files: compose.yml
+        state: present
+      register: output
+
+    - debug:
+        var: output
+
+    - assert:
+        that:
+          - "webserver.airflow_webserver_1.state.running"
