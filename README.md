@@ -172,4 +172,4 @@ localhost                  : ok=3    changed=1    unreachable=0    failed=0
 ```
 
 #### access application UI using LB address.
-[![output](https://github.com/abhiTamrakar/cloud-practise/blob/master/ansible-output.png)]
+[![output](https://github.com/abhiTamrakar/cloud-practises/blob/master/ansible-output.png)]
