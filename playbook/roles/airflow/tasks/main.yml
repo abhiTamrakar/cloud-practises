@@ -13,7 +13,19 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-- name: Run with inline v2 compose
-  hosts: airflow-server
-  roles:
-    - {role: airflow, tags: airflow}
+- import_tasks: install.yml 
+
+- name: Run with compose file.
+  docker_service:
+    project_name: airflow
+    project_src: "{{dir}}"
+    files: compose.yml
+    state: present
+  register: output
+
+- debug:
+    var: output
+
+- assert:
+    that:
+      - "webserver.airflow_webserver_1.state.running"

@@ -1,2 +1,2 @@
-[webserver]
+[airflow-server]
 localhost

@@ -13,7 +13,19 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-- name: Run with inline v2 compose
-  hosts: airflow-server
-  roles:
-    - {role: airflow, tags: airflow}
+- name:  install required package.
+  package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+
+- name: copy required files.
+  copy:
+    src: "{{item}}"
+    dest: "{{dir}}/{{item}}"
+  with_items: "{{files}}"
+
+- name: install requirements.
+  pip:
+    requirements: "{{dir}}/requirements.txt"
+    state: present
