@@ -19,7 +19,7 @@ sudo pip install -r requirements.txt
 
 ```
 git clone https://github.com/abhiTamrakar/cloud-practises.git
-cd cloud-practises/terraform
+cd cloud-practises/airflow-app/terraform
 terraform init
 terraform plan -out /path/to/outputfile.plan
 # when done
@@ -33,7 +33,7 @@ terraform apply /path/to/outputfile.plan
 > if you are using sshuttle, make sure to run it before running the ansible playbook.
 > Use of '-b' with ansible playbook is advised in case, docker is installed as root user.
 ```
-cd cloud-practises/playbook
+cd cloud-practises/airflow-app/playbook
 ansible-playbook -i inventory --private-key /path/to/private/key.pem play.yml -b
 ```
 
@@ -172,4 +172,4 @@ localhost                  : ok=3    changed=1    unreachable=0    failed=0
 ```
 
 #### access application UI using LB address.
-[![output](https://github.com/abhiTamrakar/cloud-practises/blob/master/ansible-output.png)]
+[![output](https://github.com/abhiTamrakar/cloud-practises/blob/master/airflow-app/ansible-output.png)]
